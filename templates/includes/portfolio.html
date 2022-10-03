@@ -1,0 +1,17 @@
+{% load static %}
+<section class="section" id="portfolio">
+    <div class="container">
+        <h6 class="xs-font mb-0">Culpa perferendis excepturi.</h6>
+        <h3 class="section-title pb-4">Our Products</h3>
+    </div>
+
+    <div id="owl-portfolio" class="owl-carousel owl-theme mt-4">
+        {% for q in product %}
+        <a href="javascript:void(0)" class="item expertises-item">
+            <img src="{{ q.img.url }}"alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, ollie Landing page" class="box-shadow">
+            <h6 class="mt-3 mb-2">{{ q.title }}</h6>
+            <p class="xs-font">{{ q.text }}</p>
+        </a>    
+        {% endfor %}
+    </div>
+</section>

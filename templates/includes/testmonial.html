@@ -1,0 +1,28 @@
+{% load static %}
+<section class="section" id="testmonial">
+    <div class="container">
+        <h6 class="xs-font mb-0">Culpa perferendis excepturi.</h6>
+        <h3 class="section-title">Testmonials</h3>
+
+        <div id="owl-testmonial" class="owl-carousel owl-theme mt-4">
+
+            {% for a in testmonials %}
+            <div class="item">
+                <div class="textmonial-item">
+                    <img src="{{ a.img.url }}" class="avatar" alt="">
+                    <div class="des">
+                        <h5 class="ti-quote-left font-weight-bold"></h5>
+                        <p>{{ a.text }}</p>
+                        <h5 class="ti-quote-left text-right font-weight-bold"></h5>
+
+                        <div class="line"></div>
+                        <h6 class="name">{{ a.name }}</h6>
+                        <h6 class="xs-font">{{ a.develop }}</h6>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        
+        </div>
+    </div>
+</section>

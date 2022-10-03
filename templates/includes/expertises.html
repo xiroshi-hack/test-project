@@ -1,0 +1,23 @@
+{% load static %}
+<section class="section">
+    <div class="container">
+        <h6 class="xs-font mb-0">Blanditiis unde illum earum</h6>
+        <h3 class="section-title mb-4">Expertises</h3>
+
+        <div class="row text-center">
+
+            {% for v in expertises %}
+            <div class="col-lg-4">
+                <a href="javascript:void(0)" class="card border-0 text-dark">
+                    <img class="card-img-top" src="{{ v.img.url }}" alt="rasmni topib bolmadi">
+                    <span class="card-body">
+                        <h4 class="title mt-4">{{ v.title }}</h4>
+                        <p class="xs-font">{{ v.text }}</p>
+                    </span>
+                </a>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
