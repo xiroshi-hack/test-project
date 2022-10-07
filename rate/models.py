@@ -9,6 +9,15 @@ from django.contrib.auth.models import AbstractUser
 class CustomUser(AbstractUser):
     pass
 
+class LeadRegister (models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    
+    def __str__(self):
+        return self.first_name
+
+
 class Title(models.Model):
     text = models.CharField(max_length=70)
     btn = models.CharField(max_length=30)

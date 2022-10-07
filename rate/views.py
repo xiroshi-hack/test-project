@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render, reverse
+from django.views import generic
 from .models import *
+from rate.forms import Registration
 from django.contrib.auth.forms import UserCreationForm  
 
 def home(request):    
@@ -20,14 +22,16 @@ def home(request):
     })
     
 
-def login(request):  
-    if request.POST == 'POST':  
-        form = UserCreationForm()  
-        if form.is_valid():  
-            form.save()  
-    else:  
-        form = UserCreationForm()  
-    context = {  
-        'form':form  
-    }  
-    return render(request, 'includes/login.html', context)
+    
+    
+    
+class Main(generic.TemplateView):
+    template_name = 'index.html'
+    
+
+class Register(generic.CreateView):
+    template_name = 'includes/login.html'
+    form_class = Registration
+    
+    def get_success_url(self):
+        return reverse('core:home')
