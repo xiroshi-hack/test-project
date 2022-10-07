@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from django.contrib.auth.forms import UserCreationForm  
 
 def home(request):    
     
@@ -17,3 +18,16 @@ def home(request):
         'product': product,
         'testmonials': testmonials,
     })
+    
+
+def login(request):  
+    if request.POST == 'POST':  
+        form = UserCreationForm()  
+        if form.is_valid():  
+            form.save()  
+    else:  
+        form = UserCreationForm()  
+    context = {  
+        'form':form  
+    }  
+    return render(request, 'includes/login.html', context)
